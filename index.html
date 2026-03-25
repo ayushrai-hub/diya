@@ -31,6 +31,23 @@
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <script type="module" crossorigin src="/assets/index-CNvsCBVp.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-BujY1Nu0.css">
+  <style>
+.bw-cards {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.bw-row {
+  margin-bottom: 40px;
+}
+
+.bw-row.active {
+  transform: scale(1.01);
+  transition: 0.3s ease;
+}
+</style>
 </head>
 <body>
 
@@ -610,6 +627,48 @@
       <div class="bw-arrow"><i class="ph ph-arrow-right"></i></div>
     </div>
 
+    <!-- ── Script Writing ── -->
+<div class="bw-row">
+  <div class="bw-row-meta">
+    <span class="bw-dot"></span>
+    <div class="bw-row-text">
+      <h3 class="bw-cat">Script Writing</h3>
+      <span class="bw-count">Videos + PDFs</span>
+    </div>
+  </div>
+
+  <div class="bw-cards">
+
+    <!-- YouTube Video -->
+    <div class="bw-card" style="padding:0;">
+      <iframe width="100%" height="200"
+        src="https://www.youtube.com/embed/9L3ntS7tvsY"
+        title="Short Film on Depression"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+      <div class="bw-card-info">
+        <h4>Short Film on Depression</h4>
+        <p>Script writing + storytelling execution.</p>
+      </div>
+    </div>
+
+    <!-- Drive Video -->
+    <a href="https://drive.google.com/file/d/1rafALEAdPkjOAcdO4vKKSu1L2Ru1b2tQ/view"
+       target="_blank"
+       class="bw-card">
+      <img src="/th-cr.png" class="bw-thumb" />
+      <div class="bw-card-info">
+        <h4>Paradox Event Trailer</h4>
+        <p>Event storytelling + narrative build.</p>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="bw-arrow"><i class="ph ph-arrow-right"></i></div>
+</div>
+
     <!-- ── Podcast Writing ── -->
     <div class="bw-row">
       <div class="bw-row-meta">
@@ -1056,26 +1115,23 @@
 
   <script>
   document.querySelectorAll('.bw-row').forEach(row => {
-    const cards = row.querySelector('.bw-cards');
     const arrow = row.querySelector('.bw-arrow');
-
-    // Start collapsed
-    cards.style.display = "none";
 
     row.addEventListener('click', (e) => {
       if (e.target.closest('.bw-card')) return;
 
-      const isOpen = cards.style.display === "flex";
-
-      cards.style.display = isOpen ? "none" : "flex";
+      row.classList.toggle('active');
 
       if (arrow) {
-        arrow.style.transform = isOpen ? "rotate(0deg)" : "rotate(90deg)";
+        arrow.style.transform = row.classList.contains('active')
+          ? "rotate(90deg)"
+          : "rotate(0deg)";
       }
     });
   });
 </script>
 
 </body>
+
 </html>
 
