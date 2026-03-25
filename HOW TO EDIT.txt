@@ -1,0 +1,140 @@
+================================================================
+DIYA PORTFOLIO - HOW TO EDIT YOUR WEBSITE
+================================================================
+Open index.html in Notepad or any text editor.
+Use CTRL+F to search for the words mentioned below.
+================================================================
+
+
+----------------------------------------------------------------
+YOUR NAME & TITLE (Hero Section - top of page)
+----------------------------------------------------------------
+Search for: "hero-subtitle"
+Change: DIYA NATHWANI  ->  your name
+
+Search for: "hero-title"
+Change: CONTENT  ->  your word
+        STRATEGIST  ->  your word
+
+Search for: "hero-desc"
+Change: the short description text below the portrait
+
+
+----------------------------------------------------------------
+ABOUT SECTION
+----------------------------------------------------------------
+Search for: "about-bio"
+Change: the paragraph text about yourself
+
+Search for: "stat-num"
+Change: 3, 50, 20+  ->  your actual numbers
+
+Search for: "contact-label"
+Nearby you will see your email and location. Change those values.
+
+Search for: href="mailto:
+Change: diya@example.com  ->  your real email
+
+
+----------------------------------------------------------------
+SOCIAL MEDIA LINKS
+----------------------------------------------------------------
+Search each of these and replace with your real profile URLs:
+
+href="https://x.com/
+href="https://instagram.com/
+href="https://behance.net/
+href="https://www.linkedin.com/
+href="https://dribbble.com/
+
+
+----------------------------------------------------------------
+NUMBERS / STATS SECTION
+----------------------------------------------------------------
+Search for: "nums-heading"
+Change: 50  ->  your main highlight number
+
+Search for: "nums-num"
+Change the 4 stat numbers and their labels below them
+
+
+----------------------------------------------------------------
+SERVICES (accordion list)
+----------------------------------------------------------------
+Search for: "svc-title"
+Change the 4 service heading names
+
+Search for: "svc-body-list"
+Change the bullet point items under each service
+
+
+----------------------------------------------------------------
+BEST WORK / PROJECTS SECTION
+----------------------------------------------------------------
+Search for: "bw-card"
+Each card has a link (href=""), a title (h4), and a short text (p).
+Change those 3 things for each project card.
+Also change the thumbnail image src if needed.
+
+
+----------------------------------------------------------------
+JOURNEY / TIMELINE
+----------------------------------------------------------------
+Search for: "jrn-year"     ->  change the year
+Search for: "jrn-role"     ->  change the role title
+Search for: "jrn-company"  ->  change the company name
+Search for: "jrn-desc"     ->  change the description
+
+
+----------------------------------------------------------------
+CONTACT SECTION (bottom of page)
+----------------------------------------------------------------
+Search for: "c-val"
+Change your email and phone number shown there.
+
+Search for: "c-soc-btn"
+Change the href links for each social button.
+
+
+================================================================
+HOW TO REPLACE IMAGES
+================================================================
+All images are in the same folder as index.html.
+To replace an image, just copy your new image into this folder
+with the EXACT same filename. For example:
+
+huh.jpg            ->  your main portrait photo (used in hero + about)
+workspace.png      ->  image in the services section
+th-cs.png          ->  project thumbnail (Content Strategy)
+th-cw.png          ->  project thumbnail (Creative Writing)
+th-sm.png          ->  project thumbnail (Social Media)
+th-cr.png          ->  project thumbnail (Brand Copywriting)
+
+IMPORTANT: Keep the same filename and extension (jpg/png).
+If you change the filename, you must also update the src="" in index.html.
+
+
+================================================================
+HOW TO UPLOAD TO YOUR HOSTING
+================================================================
+1. Login to your hosting cPanel
+2. Open File Manager
+3. Go to public_html folder
+4. Upload ALL files from this zip into public_html
+5. Make sure .htaccess file is also uploaded
+   (turn on "Show Hidden Files" in File Manager to see it)
+6. Done - visit your domain and the site is live
+
+
+================================================================
+COMMON PROBLEMS
+================================================================
+Images not showing       ->  Check filename spelling (it is case sensitive)
+Blank page               ->  index.html must be directly in public_html
+Old site still showing   ->  Press Ctrl+Shift+R to force refresh
+Site not https           ->  Install free SSL from cPanel -> Let's Encrypt
+
+
+================================================================
+Developed by @gtxPrime   |   t.me/gtxprime
+================================================================
