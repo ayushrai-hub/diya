@@ -320,13 +320,20 @@ tr:hover td{background:rgba(255,255,255,.02)}
 }
 
 /* ===== FORCE TROPHY GRID TO 3 PER ROW ===== */
+/* ===== HARD RESET TROPHY GRID ===== */
 .trophy-grid {
   display: grid !important;
-  grid-template-columns: 1fr 1fr 1fr !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   gap: 24px !important;
 }
 
-/* make sure cards behave */
+/* 🔥 KILL ANY FLEX BEHAVIOR */
+.trophy-grid {
+  flex: none !important;
+}
+
+/* make sure children don’t stretch weirdly */
 .trophy-card {
   width: 100% !important;
+  max-width: 100% !important;
 }
