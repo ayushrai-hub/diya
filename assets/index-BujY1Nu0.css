@@ -15,3 +15,30 @@
 .trophy-card {
   width: 100%;
 }
+
+
+/* ===== FORCE CARD LAYOUT FIX ===== */
+
+.bw-cards {
+  display: flex !important;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.bw-cards iframe,
+.bw-cards img {
+  width: 260px !important;
+  height: 150px !important;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.bw-card {
+  min-width: 220px !important;
+  max-width: 240px !important;
+  background: #ffffff0a;
+  border: 1px solid #ffffff14;
+  border-radius: 16px;
+  padding: 16px;
+}
