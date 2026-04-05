@@ -47,6 +47,82 @@
   transform: scale(1.01);
   transition: 0.3s ease;
 }
+
+/* Journey → Clients: trophy primitives, 3 / 2 / 1 column grid (tokens match .trophy-grid) */
+.jrn-clients-panel {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+.jrn-clients-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+/* Mirror .trophy-card so GSAP (global .trophy-card) does not affect journey clients */
+.jrn-clients-panel .jrn-client-tile {
+  cursor: default;
+  background: #ffffff0a;
+  border: 1px solid #ffffff14;
+  border-radius: 20px;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  transition: background 0.25s, transform 0.25s, border-color 0.25s;
+  display: flex;
+}
+.jrn-clients-panel .jrn-client-tile:hover {
+  background: #ffffff14;
+  border-color: #ffffff26;
+  transform: translateY(-4px);
+}
+.jrn-clients-panel .jrn-client-tile .jrn-desc {
+  margin-top: 10px;
+}
+.jrn-client-role {
+  font-family: var(--font-body);
+  color: var(--neon-green);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 8px;
+}
+.jrn-client-initials {
+  font-family: var(--font-title);
+  color: var(--neon-green);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+@media (width<=900px) {
+  .jrn-clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (width<=540px) {
+  .jrn-clients-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Trophy Shelf — credential thumbnails (same tokens as .trophy-icon border) */
+.trophy-thumb {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #d4f75e33;
+  background: #ffffff0a;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trophy-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -724,16 +800,120 @@
         <button class="jrn-tab" data-tab="education" role="tab">
           <i class="ph ph-graduation-cap"></i> Education
         </button>
+        <!-- Milestones tab (disabled)
         <button class="jrn-tab" data-tab="milestones" role="tab">
           <i class="ph ph-flag-pennant"></i> Milestones
         </button>
+        -->
       </div>
 
       <!-- Body: timeline + sidebar -->
       <div class="jrn-body">
 
+        <div id="jrnClientsPanel" class="jrn-clients-panel hidden">
+          <div class="trophy-grid jrn-clients-grid">
+
+            <div class="jrn-client-tile">
+              <div class="trophy-icon"><span class="jrn-client-initials" aria-hidden="true">SO</span></div>
+              <h3 class="trophy-title">Soul AI</h3>
+              <p class="jrn-client-role">AI Trainer (Project Mercury)</p>
+              <span class="trophy-year">Jun 2024 – Jul 2024</span>
+              <p class="jrn-desc">LLM training, advanced prompt engineering, market research.</p>
+            </div>
+
+            <div class="jrn-client-tile">
+              <div class="trophy-icon"><span class="jrn-client-initials" aria-hidden="true">ME</span></div>
+              <h3 class="trophy-title">Melooha</h3>
+              <p class="jrn-client-role">Script Writer (Paid Ads)</p>
+              <span class="trophy-year">Shark Tank Featured</span>
+              <p class="jrn-desc">Conversion rates increased by ~38% through strategic ad storytelling.</p>
+            </div>
+
+            <div class="jrn-client-tile">
+              <div class="trophy-icon"><span class="jrn-client-initials" aria-hidden="true">VC</span></div>
+              <h3 class="trophy-title">Vidhi Chotai</h3>
+              <p class="jrn-client-role">Social Media Strategist</p>
+              <span class="trophy-year">Ongoing</span>
+              <p class="jrn-desc">Complete A–Z ideation &amp; execution for Instagram + LinkedIn branding.</p>
+            </div>
+
+            <div class="jrn-client-tile">
+              <div class="trophy-icon"><span class="jrn-client-initials" aria-hidden="true">PR</span></div>
+              <h3 class="trophy-title">Pristilo Cold Pressed Oil</h3>
+              <p class="jrn-client-role">Social Media Strategist</p>
+              <span class="trophy-year">2023</span>
+              <p class="jrn-desc">Dubai-targeted campaign, sales increased by ~42%.</p>
+            </div>
+
+            <div class="jrn-client-tile">
+              <div class="trophy-icon"><span class="jrn-client-initials" aria-hidden="true">ST</span></div>
+              <h3 class="trophy-title">StatGlow</h3>
+              <p class="jrn-client-role">SaaS Writer &amp; Wireframe Strategist</p>
+              <span class="trophy-year">Oct 2023 – Mar 2024</span>
+              <p class="jrn-desc">SEO + storytelling + UI wireframing.</p>
+            </div>
+
+            <div class="jrn-client-tile">
+              <div class="trophy-icon"><span class="jrn-client-initials" aria-hidden="true">KB</span></div>
+              <h3 class="trophy-title">Kukreja Builders, Nagpur</h3>
+              <p class="jrn-client-role">Copywriter</p>
+              <span class="trophy-year">Launch Campaign</span>
+              <p class="jrn-desc">Strategic copywriting for property launch campaign.</p>
+            </div>
+
+            <div class="jrn-client-tile">
+              <div class="trophy-icon"><span class="jrn-client-initials" aria-hidden="true">SB</span></div>
+              <h3 class="trophy-title">Sagar Bhatt</h3>
+              <p class="jrn-client-role">Research Paper Writer</p>
+              <span class="trophy-year">Technical &amp; Scientific Writing</span>
+              <p class="jrn-desc">Technical and scientific writing for research publications.</p>
+            </div>
+
+            <div class="jrn-client-tile">
+              <div class="trophy-icon"><span class="jrn-client-initials" aria-hidden="true">FI</span></div>
+              <h3 class="trophy-title">Fiscaleye Pvt. Ltd.</h3>
+              <p class="jrn-client-role">Website Rebranding Specialist</p>
+              <span class="trophy-year">Website Rebranding</span>
+              <p class="jrn-desc">Complete website content strategy and rebranding.</p>
+            </div>
+
+            <div class="jrn-client-tile">
+              <div class="trophy-icon"><span class="jrn-client-initials" aria-hidden="true">IF</span></div>
+              <h3 class="trophy-title">Investment Forum Company</h3>
+              <p class="jrn-client-role">Script Writer</p>
+              <span class="trophy-year">YouTube &amp; Instagram</span>
+              <p class="jrn-desc">Script writing for YouTube and Instagram content.</p>
+            </div>
+
+            <div class="jrn-client-tile">
+              <div class="trophy-icon"><span class="jrn-client-initials" aria-hidden="true">DT</span></div>
+              <h3 class="trophy-title">Darshan Thakral</h3>
+              <p class="jrn-client-role">Content Creation Strategist</p>
+              <span class="trophy-year">Ongoing</span>
+              <p class="jrn-desc">Strategic content creation and planning.</p>
+            </div>
+
+            <div class="jrn-client-tile">
+              <div class="trophy-icon"><span class="jrn-client-initials" aria-hidden="true">VG</span></div>
+              <h3 class="trophy-title">Venkateshwaran Giri</h3>
+              <p class="jrn-client-role">AI Content &amp; SEO Expert</p>
+              <span class="trophy-year">AI Content &amp; SEO</span>
+              <p class="jrn-desc">AI-powered content creation and SEO optimization.</p>
+            </div>
+
+            <div class="jrn-client-tile">
+              <div class="trophy-icon"><span class="jrn-client-initials" aria-hidden="true">SS</span></div>
+              <h3 class="trophy-title">Shrirang Siras</h3>
+              <p class="jrn-client-role">Content Creator</p>
+              <span class="trophy-year">Multiple Clients</span>
+              <p class="jrn-desc">Content creation across various industries.</p>
+            </div>
+
+          </div>
+        </div>
+
         <!-- LEFT: timeline cards -->
-        <div class="jrn-timeline">
+        <div class="jrn-timeline" id="jrnTimelineHost">
 
           <!-- Corporate -->
           <div class="jrn-card" data-cat="corporate">
@@ -769,67 +949,25 @@
             </div>
           </div>
 
-          <!-- Clients -->
-          <div class="jrn-card hidden" data-cat="clients">
-            <span class="jrn-bullet"></span>
-            <div class="jrn-card-inner">
-              <div class="jrn-card-meta"><span class="jrn-year">2023</span><span class="jrn-role">Content Strategy</span></div>
-              <h3 class="jrn-company">Bloom Wellness</h3>
-              <p class="jrn-desc">Full brand voice guide and 6-month content roadmap for a D2C wellness startup.</p>
-            </div>
-          </div>
-          <div class="jrn-card hidden" data-cat="clients">
-            <span class="jrn-bullet"></span>
-            <div class="jrn-card-inner">
-              <div class="jrn-card-meta"><span class="jrn-year">2023</span><span class="jrn-role">Copywriting</span></div>
-              <h3 class="jrn-company">Nara Studio</h3>
-              <p class="jrn-desc">Full website copy rewrite for a design studio launch — brand voice, UX copy, and case studies.</p>
-            </div>
-          </div>
-          <div class="jrn-card hidden" data-cat="clients">
-            <span class="jrn-bullet"></span>
-            <div class="jrn-card-inner">
-              <div class="jrn-card-meta"><span class="jrn-year">2024</span><span class="jrn-role">Social Media</span></div>
-              <h3 class="jrn-company">The Craft Collective</h3>
-              <p class="jrn-desc">Instagram content strategy growing from 2K to 18K followers across 4 months.</p>
-            </div>
-          </div>
-          <div class="jrn-card hidden" data-cat="clients">
-            <span class="jrn-bullet"></span>
-            <div class="jrn-card-inner">
-              <div class="jrn-card-meta"><span class="jrn-year">2024</span><span class="jrn-role">Brand Copywriting</span></div>
-              <h3 class="jrn-company">SeedScale</h3>
-              <p class="jrn-desc">Email sequence and landing page copy for a SaaS product launch with 42% open rate.</p>
-            </div>
-          </div>
-
           <!-- Education -->
           <div class="jrn-card hidden" data-cat="education">
             <span class="jrn-bullet"></span>
             <div class="jrn-card-inner">
-              <div class="jrn-card-meta"><span class="jrn-year">2020</span><span class="jrn-role">B.A. Mass Communication</span></div>
-              <h3 class="jrn-company">Loyola College</h3>
-              <p class="jrn-desc">Studied journalism, media writing and brand communication — the foundation of everything I do.</p>
+              <div class="jrn-card-meta"><span class="jrn-year">2022–2026</span><span class="jrn-role">B.S. in Data Science &amp; Applications</span></div>
+              <h3 class="jrn-company">IIT Madras</h3>
+              <p class="jrn-desc">CGPA: 7.5</p>
             </div>
           </div>
           <div class="jrn-card hidden" data-cat="education">
             <span class="jrn-bullet"></span>
             <div class="jrn-card-inner">
-              <div class="jrn-card-meta"><span class="jrn-year">2022</span><span class="jrn-role">Certification</span></div>
-              <h3 class="jrn-company">HubSpot Academy</h3>
-              <p class="jrn-desc">Content Marketing Certification covering SEO, blogging, social media and lead nurturing.</p>
-            </div>
-          </div>
-          <div class="jrn-card hidden" data-cat="education">
-            <span class="jrn-bullet"></span>
-            <div class="jrn-card-inner">
-              <div class="jrn-card-meta"><span class="jrn-year">2023</span><span class="jrn-role">Course</span></div>
-              <h3 class="jrn-company">CopyHackers</h3>
-              <p class="jrn-desc">Advanced conversion copywriting — mastering headlines, email sequences and sales page copy.</p>
+              <div class="jrn-card-meta"><span class="jrn-year">2020–2023</span><span class="jrn-role">Bachelor of Business Administration (Marketing-focused)</span></div>
+              <h3 class="jrn-company">Gondwana University</h3>
+              <p class="jrn-desc">CGPA: 9.5</p>
             </div>
           </div>
 
-          <!-- Milestones -->
+          <!-- Milestones (disabled)
           <div class="jrn-card hidden" data-cat="milestones">
             <span class="jrn-bullet"></span>
             <div class="jrn-card-inner">
@@ -854,27 +992,25 @@
               <p class="jrn-desc">A YouTube video script reached 500K views — making it the highest performing piece of content I've written.</p>
             </div>
           </div>
+          -->
 
         </div>
 
         <!-- RIGHT: icon sidebar -->
-        <div class="jrn-sidebar">
+        <div class="jrn-sidebar" id="jrnSidebarHost">
           <span class="jrn-sidebar-label">CORPORATE</span>
           <div class="jrn-sidebar-icons">
             <div class="jrn-icon-tile" data-cat="corporate"><span class="jrn-initials">YU</span><span class="jrn-iname">Younity</span></div>
             <div class="jrn-icon-tile" data-cat="corporate"><span class="jrn-initials">IC</span><span class="jrn-iname">ICCW</span></div>
             <div class="jrn-icon-tile" data-cat="corporate"><span class="jrn-initials">CS</span><span class="jrn-iname">CenturySoft</span></div>
             <div class="jrn-icon-tile" data-cat="corporate"><span class="jrn-initials">IN</span><span class="jrn-iname">Independent</span></div>
-            <div class="jrn-icon-tile hidden" data-cat="clients"><span class="jrn-initials">BW</span><span class="jrn-iname">Bloom Wellness</span></div>
-            <div class="jrn-icon-tile hidden" data-cat="clients"><span class="jrn-initials">NS</span><span class="jrn-iname">Nara Studio</span></div>
-            <div class="jrn-icon-tile hidden" data-cat="clients"><span class="jrn-initials">CC</span><span class="jrn-iname">Craft Collective</span></div>
-            <div class="jrn-icon-tile hidden" data-cat="clients"><span class="jrn-initials">SS</span><span class="jrn-iname">SeedScale</span></div>
-            <div class="jrn-icon-tile hidden" data-cat="education"><span class="jrn-initials">LC</span><span class="jrn-iname">Loyola</span></div>
-            <div class="jrn-icon-tile hidden" data-cat="education"><span class="jrn-initials">HS</span><span class="jrn-iname">HubSpot</span></div>
-            <div class="jrn-icon-tile hidden" data-cat="education"><span class="jrn-initials">CH</span><span class="jrn-iname">CopyHackers</span></div>
+            <div class="jrn-icon-tile hidden" data-cat="education"><span class="jrn-initials">IM</span><span class="jrn-iname">IIT Madras</span></div>
+            <div class="jrn-icon-tile hidden" data-cat="education"><span class="jrn-initials">GU</span><span class="jrn-iname">Gondwana</span></div>
+            <!-- Milestones sidebar tiles (disabled)
             <div class="jrn-icon-tile hidden" data-cat="milestones"><span class="jrn-initials">50</span><span class="jrn-iname">Projects</span></div>
             <div class="jrn-icon-tile hidden" data-cat="milestones"><span class="jrn-initials">10K</span><span class="jrn-iname">Reached</span></div>
             <div class="jrn-icon-tile hidden" data-cat="milestones"><span class="jrn-initials">500</span><span class="jrn-iname">K Views</span></div>
+            -->
           </div>
         </div>
 
@@ -897,31 +1033,51 @@
       <div class="trophy-grid">
 
         <div class="trophy-card">
-          <div class="trophy-icon"><i class="ph-fill ph-trophy"></i></div>
+          <div class="trophy-thumb">
+            <img src="/TTT.png" alt="Certificate: Writing That Sells Pro — TTT Academy, Diya Nathwani, March 2024" loading="lazy" width="800" height="600" />
+          </div>
           <span class="trophy-year">2024</span>
-          <h3 class="trophy-title">Content That Converts — Certified Pro</h3>
-          <span class="trophy-org">HubSpot × CopyHackers</span>
+          <h3 class="trophy-title">Writing That Sells Pro</h3>
+          <span class="trophy-org">TTT Academy</span>
+        </div>
+
+        <div class="trophy-card">
+          <div class="trophy-thumb">
+            <img src="/IFP%20AWARDS-%20Writing%20Nomination.png" alt="Nominee: 50 Hour Writing Challenge — IFP Festival Season 15" loading="lazy" width="800" height="600" />
+          </div>
+          <span class="trophy-year">Season 15</span>
+          <h3 class="trophy-title">50 Hour Writing Challenge — Nominee</h3>
+          <span class="trophy-org">India Film Project</span>
+        </div>
+
+        <div class="trophy-card">
+          <div class="trophy-thumb">
+            <img src="/Google%20Ads%20Creative%20Certificate.jpg" alt="Google Ads Creative Certification — Diya Nathwani, Sept 2025" loading="lazy" width="800" height="600" />
+          </div>
+          <span class="trophy-year">2025</span>
+          <h3 class="trophy-title">Google Ads Creative Certification</h3>
+          <span class="trophy-org">Google</span>
         </div>
 
         <div class="trophy-card">
           <div class="trophy-icon"><i class="ph-fill ph-target"></i></div>
           <span class="trophy-year">2023</span>
-          <h3 class="trophy-title">ICCW Content Lead — 10K+ Reach</h3>
-          <span class="trophy-org">International Conference</span>
+          <h3 class="trophy-title">SeekEase Mental Wellness App Strategy</h3>
+          <span class="trophy-org">Healthcare Innovation</span>
         </div>
 
         <div class="trophy-card">
           <div class="trophy-icon"><i class="ph-fill ph-medal"></i></div>
           <span class="trophy-year">2023</span>
-          <h3 class="trophy-title">Young Storyteller Runner-Up</h3>
-          <span class="trophy-org">Ink &amp; Ideas Festival</span>
+          <h3 class="trophy-title">Spirit @ Parivartan Runner-Up</h3>
+          <span class="trophy-org">IIT Delhi</span>
         </div>
 
         <div class="trophy-card">
           <div class="trophy-icon"><i class="ph-fill ph-star"></i></div>
           <span class="trophy-year">2023</span>
-          <h3 class="trophy-title">Top 30 Female Content Creators</h3>
-          <span class="trophy-org">Digital Wave India</span>
+          <h3 class="trophy-title">Safar Project Innovation Runner-Up</h3>
+          <span class="trophy-org">Gondwana University</span>
         </div>
 
       </div>
@@ -1128,6 +1284,34 @@
           : "rotate(0deg)";
       }
     });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var panel = document.getElementById('jrnClientsPanel');
+    var tl = document.getElementById('jrnTimelineHost');
+    var sb = document.getElementById('jrnSidebarHost');
+    if (!panel || !tl || !sb) return;
+
+    function applyClientsLayout(isClients) {
+      if (isClients) {
+        panel.classList.remove('hidden');
+        tl.classList.add('hidden');
+        sb.classList.add('hidden');
+      } else {
+        panel.classList.add('hidden');
+        tl.classList.remove('hidden');
+        sb.classList.remove('hidden');
+      }
+    }
+
+    document.querySelectorAll('.jrn-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        applyClientsLayout(tab.dataset.tab === 'clients');
+      });
+    });
+
+    var active = document.querySelector('.jrn-tab.active');
+    applyClientsLayout(active && active.dataset.tab === 'clients');
   });
 </script>
 
