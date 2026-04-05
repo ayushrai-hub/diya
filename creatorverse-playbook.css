@@ -19,16 +19,6 @@ html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:'Sy
 /* GRID */
 .grid-bg{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.15}
 
-/*TROPHY GRID*/
-.trophy-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 24px;
-
-  max-width: 1100px;   /* 🔥 THIS IS KEY */
-  margin: 0 auto;      /* center it */
-}
-
 /* PROGRESS */
 .progress-bar{position:absolute;top:0;left:0;width:100%;height:3px;background:var(--z900);z-index:50}
 .progress-fill{height:100%;background:var(--lime);transition:width .35s ease}
@@ -319,21 +309,3 @@ tr:hover td{background:rgba(255,255,255,.02)}
   .ig-post,.reel-card,.dm-thread,.li-post{max-width:100%}
 }
 
-/* ===== FORCE TROPHY GRID TO 3 PER ROW ===== */
-/* ===== HARD RESET TROPHY GRID ===== */
-.trophy-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 24px !important;
-}
-
-/* 🔥 KILL ANY FLEX BEHAVIOR */
-.trophy-grid {
-  flex: none !important;
-}
-
-/* make sure children don’t stretch weirdly */
-.trophy-card {
-  width: 100% !important;
-  max-width: 100% !important;
-}
