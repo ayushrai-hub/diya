@@ -99,16 +99,20 @@ Change the href links for each social button.
 ================================================================
 HOW TO REPLACE IMAGES
 ================================================================
-All images are in the same folder as index.html.
-To replace an image, just copy your new image into this folder
+Site images live in: assets/images/
+(Portrait, case studies, certificates, and project thumbnails.)
+
+To replace an image, copy your new file into assets/images/
 with the EXACT same filename. For example:
 
 huh.jpg            ->  your main portrait photo (used in hero + about)
-workspace.png      ->  image in the services section
+workspace.png      ->  image in the services section (if used)
 th-cs.png          ->  project thumbnail (Content Strategy)
 th-cw.png          ->  project thumbnail (Creative Writing)
 th-sm.png          ->  project thumbnail (Social Media)
 th-cr.png          ->  project thumbnail (Brand Copywriting)
+
+PDFs and similar files: assets/docs/
 
 IMPORTANT: Keep the same filename and extension (jpg/png).
 If you change the filename, you must also update the src="" in index.html.
@@ -120,7 +124,7 @@ HOW TO UPLOAD TO YOUR HOSTING
 1. Login to your hosting cPanel
 2. Open File Manager
 3. Go to public_html folder
-4. Upload ALL files from this zip into public_html
+4. Upload ALL files and folders (assets/, docs/, etc.) into public_html
 5. Make sure .htaccess file is also uploaded
    (turn on "Show Hidden Files" in File Manager to see it)
 6. Done - visit your domain and the site is live

@@ -4,6 +4,26 @@ Options -Indexes
 # Enable RewriteEngine
 RewriteEngine On
 
+# Legacy URLs at site root still resolve after media moved under assets/
+RewriteRule ^huh\.jpg$ /assets/images/huh.jpg [L]
+RewriteRule ^diyyyyyy\.jpeg$ /assets/images/diyyyyyy.jpeg [L]
+RewriteRule ^CityAFrame\.png$ /assets/images/CityAFrame.png [L]
+RewriteRule ^FindEfaces\.png$ /assets/images/FindEfaces.png [L]
+RewriteRule ^HOBirayani\.jpeg$ /assets/images/HOBirayani.jpeg [L]
+RewriteRule ^wall\.png$ /assets/images/wall.png [L]
+RewriteRule ^th-cs\.png$ /assets/images/th-cs.png [L]
+RewriteRule ^th-cr\.png$ /assets/images/th-cr.png [L]
+RewriteRule ^TTT\.png$ /assets/images/TTT.png [L]
+RewriteRule ^IFP\ AWARDS-\ Writing\ Nomination\.png$ /assets/images/IFP\ AWARDS-\ Writing\ Nomination.png [L]
+RewriteRule ^Google\ Ads\ Creative\ Certificate\.jpg$ /assets/images/Google\ Ads\ Creative\ Certificate.jpg [L]
+RewriteRule ^HOB\.png$ /assets/images/HOB.png [L]
+RewriteRule ^th-cw\.png$ /assets/images/th-cw.png [L]
+RewriteRule ^th-sm\.png$ /assets/images/th-sm.png [L]
+RewriteRule ^wallthatraised\.png$ /assets/images/wallthatraised.png [L]
+RewriteRule ^why-choose-circle\.png$ /assets/images/why-choose-circle.png [L]
+RewriteRule ^workspace\.png$ /assets/images/workspace.png [L]
+RewriteRule ^TTT_writing_that_sells_pro_-_december_cohort-2357\.pdf$ /assets/docs/TTT_writing_that_sells_pro_-_december_cohort-2357.pdf [L]
+
 # Ensure https (optional, uncomment if needed)
 # RewriteCond %{HTTPS} off
 # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
