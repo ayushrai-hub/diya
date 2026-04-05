@@ -23,7 +23,10 @@ html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:'Sy
 .trophy-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
-  gap: 20px;
+  gap: 24px;
+
+  max-width: 1100px;   /* 🔥 THIS IS KEY */
+  margin: 0 auto;      /* center it */
 }
 
 /* PROGRESS */
