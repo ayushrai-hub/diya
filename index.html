@@ -753,6 +753,7 @@
         grid-template-columns:repeat(3,1fr);
         gap:22px;
         margin-top:40px;
+        align-items:start;
       }
 
       .pop-item{
@@ -776,10 +777,25 @@
         transform:scale(1.02);
       }
 
+      /* staggered editorial layout */
+
+      .pop-item:nth-child(1){
+        margin-top:120px;
+      }
+
+      .pop-item:nth-child(4){
+        margin-top:-120px;
+      }
+
       @media(max-width:900px){
 
         .pop-grid{
           grid-template-columns:repeat(2,1fr);
+        }
+
+        .pop-item:nth-child(1),
+        .pop-item:nth-child(4){
+          margin-top:0;
         }
 
       }
@@ -796,14 +812,7 @@
 
     <div class="pop-grid">
 
-      <a class="pop-item"
-         href="https://drive.google.com/open?id=12L9X7Hk8S-V6_m9aY-Z2L9X7Hk8S-V6_"
-         target="_blank">
-
-        <img src="https://raw.githubusercontent.com/ayushrai-hub/diya/main/assets/images/Pop-Culture%20Copy1.jpg"
-             alt="Pop Culture Copy 1" />
-
-      </a>
+      <!-- 2 -->
 
       <a class="pop-item"
          href="https://drive.google.com/open?id=13M9X7Hk8S-V6_m9aY-Z2L9X7Hk8S-V6_"
@@ -814,6 +823,8 @@
 
       </a>
 
+      <!-- 3 -->
+
       <a class="pop-item"
          href="https://drive.google.com/open?id=14N9X7Hk8S-V6_m9aY-Z2L9X7Hk8S-V6_"
          target="_blank">
@@ -822,6 +833,30 @@
              alt="Pop Culture Copy 3" />
 
       </a>
+
+      <!-- 5 -->
+
+      <a class="pop-item"
+         href="https://drive.google.com/open?id=16P9X7Hk8S-V6_m9aY-Z2L9X7Hk8S-V6_"
+         target="_blank">
+
+        <img src="https://raw.githubusercontent.com/ayushrai-hub/diya/main/assets/images/Pop-Culture%20Copy5.jpg"
+             alt="Pop Culture Copy 5" />
+
+      </a>
+
+      <!-- 1 -->
+
+      <a class="pop-item"
+         href="https://drive.google.com/open?id=12L9X7Hk8S-V6_m9aY-Z2L9X7Hk8S-V6_"
+         target="_blank">
+
+        <img src="https://raw.githubusercontent.com/ayushrai-hub/diya/main/assets/images/Pop-Culture%20Copy1.jpg"
+             alt="Pop Culture Copy 1" />
+
+      </a>
+
+      <!-- 4 -->
 
       <a class="pop-item"
          href="https://drive.google.com/open?id=15O9X7Hk8S-V6_m9aY-Z2L9X7Hk8S-V6_"
@@ -832,14 +867,7 @@
 
       </a>
 
-      <a class="pop-item"
-         href="https://drive.google.com/open?id=16P9X7Hk8S-V6_m9aY-Z2L9X7Hk8S-V6_"
-         target="_blank">
-
-        <img src="https://raw.githubusercontent.com/ayushrai-hub/diya/main/assets/images/Pop-Culture%20Copy5.jpg"
-             alt="Pop Culture Copy 5" />
-
-      </a>
+      <!-- 6 -->
 
       <a class="pop-item"
          href="https://drive.google.com/open?id=17Q9X7Hk8S-V6_m9aY-Z2L9X7Hk8S-V6_"
@@ -964,7 +992,9 @@
 
 </section>
 
-  <!-- ═════════ B2B SAAS ARTICLES ═════════ -->
+<!-- ═════════════════════════════════════ -->
+<!-- ═══════ B2B SAAS ARTICLES ══════════ -->
+<!-- ═════════════════════════════════════ -->
 
 <section class="bw-section" id="projects">
 
@@ -984,565 +1014,246 @@
 
     </div>
 
-    <!-- ═════════ 1. BEST ARTICLES ═════════ -->
+    <!-- SPECIAL FIXED CSS ONLY FOR B2B -->
 
-    <div class="bw-row">
+    <style>
 
-      <div class="bw-row-meta">
+      .b2b-wrap{
+        display:flex;
+        flex-direction:column;
+        gap:36px;
+        margin-top:48px;
+      }
 
-        <span class="bw-dot"></span>
+      .b2b-row{
+        display:grid;
+        grid-template-columns:240px 1fr;
+        gap:40px;
+        align-items:flex-start;
+        padding:42px;
+        border-radius:28px;
+        background:rgba(255,255,255,.03);
+        border:1px solid rgba(255,255,255,.06);
+      }
 
-        <div class="bw-row-text">
+      .b2b-meta{
+        position:sticky;
+        top:120px;
+      }
 
-          <h3 class="bw-cat">
-           
-          </h3>
+      .b2b-left{
+        display:flex;
+        align-items:flex-start;
+        gap:14px;
+      }
 
-          <span class="bw-count">
-         
-          </span>
+      .b2b-dot{
+        width:12px;
+        height:12px;
+        border-radius:50%;
+        background:#d3ff34;
+        margin-top:10px;
+        flex-shrink:0;
+      }
+
+      .b2b-cat{
+        font-size:34px;
+        line-height:1.05;
+        margin-bottom:8px;
+      }
+
+      .b2b-count{
+        opacity:.7;
+        font-size:15px;
+      }
+
+      .b2b-cards{
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:18px;
+      }
+
+      .b2b-card{
+        display:flex;
+        align-items:flex-start;
+        gap:14px;
+        padding:18px;
+        border-radius:20px;
+        background:rgba(255,255,255,.04);
+        border:1px solid rgba(255,255,255,.08);
+        transition:.3s ease;
+        min-height:120px;
+      }
+
+      .b2b-card:hover{
+        transform:translateY(-4px);
+        border-color:rgba(211,255,52,.4);
+      }
+
+      .b2b-thumb{
+        width:52px;
+        height:52px;
+        border-radius:12px;
+        object-fit:cover;
+        flex-shrink:0;
+      }
+
+      .b2b-info h4{
+        font-size:17px;
+        line-height:1.3;
+      }
+
+      @media(max-width:1100px){
+
+        .b2b-cards{
+          grid-template-columns:repeat(2,1fr);
+        }
+
+      }
+
+      @media(max-width:820px){
+
+        .b2b-row{
+          grid-template-columns:1fr;
+        }
+
+        .b2b-cards{
+          grid-template-columns:1fr;
+        }
+
+      }
+
+    </style>
+
+    <div class="b2b-wrap">
+
+      <!-- ═════ 1. BEST ARTICLES ═════ -->
+
+      <div class="b2b-row">
+
+        <div class="b2b-meta">
+
+          <div class="b2b-left">
+
+            <span class="b2b-dot"></span>
+
+            <div>
+
+              <h3 class="b2b-cat">
+                Best Articles
+              </h3>
+
+              <span class="b2b-count">
+                7 files
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="b2b-cards">
+
+          <a href="https://drive.google.com/open?id=1Xis1DALl3fxCqO5oOE3cXwIzyTuJ7vV3"
+             target="_blank"
+             class="b2b-card">
+
+            <img src="/assets/images/th-cs.png"
+                 class="b2b-thumb" />
+
+            <div class="b2b-info">
+              <h4>
+                15 Best Ecommerce Strategies For Black Friday 2025
+              </h4>
+            </div>
+
+          </a>
+
+          <a href="https://drive.google.com/open?id=1MBeDJdBIA-5cbqft7prJgPwxbnF9WYuc"
+             target="_blank"
+             class="b2b-card">
+
+            <img src="/assets/images/th-cs.png"
+                 class="b2b-thumb" />
+
+            <div class="b2b-info">
+              <h4>
+                Amazon Restricted Products: List Of Gated Categories & Brands (2025)
+              </h4>
+            </div>
+
+          </a>
+
+          <a href="https://drive.google.com/open?id=1gyAFuS1Le1p3GyE-udBVGMgpTsR-zhjE"
+             target="_blank"
+             class="b2b-card">
+
+            <img src="/assets/images/th-cs.png"
+                 class="b2b-thumb" />
+
+            <div class="b2b-info">
+              <h4>
+                Aaj Ka Gyaan: Best Indian E-Commerce Marketplaces To Sell Online
+              </h4>
+            </div>
+
+          </a>
+
+          <a href="https://drive.google.com/open?id=17tuPLmscXM5jcxk-NJ0JKyEe1s6bV4g9"
+             target="_blank"
+             class="b2b-card">
+
+            <img src="/assets/images/th-cs.png"
+                 class="b2b-thumb" />
+
+            <div class="b2b-info">
+              <h4>
+                10+ Best Amazon Keyword Tools 2025
+              </h4>
+            </div>
+
+          </a>
+
+          <a href="https://drive.google.com/open?id=14BvJAcYUfmpaw3dIRKfbvBbiRFvcY94a"
+             target="_blank"
+             class="b2b-card">
+
+            <img src="/assets/images/th-cs.png"
+                 class="b2b-thumb" />
+
+            <div class="b2b-info">
+              <h4>
+                13 Best Amazon Data Analytics Tools For E-Commerce Businesses In 2024
+              </h4>
+            </div>
+
+          </a>
+
+          <a href="https://drive.google.com/open?id=1gsHYljAWwJe5p6pBUnrzZ_mVJzVek1FJ"
+             target="_blank"
+             class="b2b-card">
+
+            <img src="/assets/images/th-cs.png"
+                 class="b2b-thumb" />
+
+            <div class="b2b-info">
+              <h4>
+                Top 16 Amazon Analytics Tools Essential For Business Growth (2025)
+              </h4>
+            </div>
+
+          </a>
 
         </div>
 
       </div>
 
-      <div class="bw-cards">
-
-  
-
-<!-- ═════════════════════════════════════ -->
-<!-- ════════ 1. BEST ARTICLES ══════════ -->
-<!-- ═════════════════════════════════════ -->
-
-<div class="bw-row">
-
-  <div class="bw-row-meta">
-
-    <span class="bw-dot"></span>
-
-    <div class="bw-row-text">
-    <h3 class="bw-cat">Best Articles</h3>
-      <span class="bw-count">7 files</span>
-    </div>
-
-  </div>
-
-  <div class="bw-cards">
-
-    <a href="https://drive.google.com/open?id=1Xis1DALl3fxCqO5oOE3cXwIzyTuJ7vV3" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>15 Best Ecommerce Strategies For Black Friday 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1MBeDJdBIA-5cbqft7prJgPwxbnF9WYuc" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Amazon Restricted Products: List Of Gated Categories & Brands (2025)</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1gyAFuS1Le1p3GyE-udBVGMgpTsR-zhjE" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Aaj Ka Gyaan: Best Indian E-Commerce Marketplaces To Sell Online</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=17tuPLmscXM5jcxk-NJ0JKyEe1s6bV4g9" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>10+ Best Amazon Keyword Tools 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=14BvJAcYUfmpaw3dIRKfbvBbiRFvcY94a" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>13 Best Amazon Data Analytics Tools For E-Commerce Businesses In 2024</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1gsHYljAWwJe5p6pBUnrzZ_mVJzVek1FJ" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Top 16 Amazon Analytics Tools Essential For Business Growth (2025)</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1YqYhHX7utPOg9806ley38Un8ZAaJbtsj" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>8 Best Amazon Landing Page Builders to Boost Conversions</h4>
-      </div>
-    </a>
-
-  </div>
-
-</div>
-
-<!-- ═════════════════════════════════════ -->
-<!-- ═════ 2. PRODUCT & TOOL REVIEWS ════ -->
-<!-- ═════════════════════════════════════ -->
-
-<div class="bw-row">
-
-  <div class="bw-row-meta">
-
-    <span class="bw-dot"></span>
-
-    <div class="bw-row-text">
-      <h3 class="bw-cat">Product Reviews & Tool Reviews</h3>
-      <span class="bw-count">9 files</span>
-    </div>
-
-  </div>
-
-  <div class="bw-cards">
-
-    <a href="https://drive.google.com/open?id=1sjakVCATBk49QPr8sQHaBoMxP41tfcRq" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Zoof Chrome Extension Review 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1f2xjCZ9v6mWhA4khvEhXG0xNqmZyLmfy" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Sell The Trend Review 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1AP3jn0uIut3TNz4HS4rLpE20NWyglJKr" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>TikTok Business Review</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1QLFX8KZQrUhG1P97bQjHTHhnQD7PUkPP" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>AMZ Tracker Review 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=14dAxZjC2x3R5IbezkZYmtRZ40x0h1duQ" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>DataSpark Review (2025)</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1-CyvmHXGcvdboaN9Ce0A_WgWCsDZ2bcZ" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Spocket Review 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1gXI5uleXIVQ-TSvzWB5JRCNpRY1IsOHD" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>RepricerExpress Review 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=12kZklieKEvavV2cfi5kJGzePFTQv3DH0" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Perpetua Review 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1XoZCotk_4PvbVSQXto5PYLchOoWBoQna" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>PiPiADS Review</h4>
-      </div>
-    </a>
-
-  </div>
-
-</div>
-
-  <!-- ═════════════════════════════════════ -->
-<!-- ═══════ 3. GUIDES & TUTORIALS ══════ -->
-<!-- ═════════════════════════════════════ -->
-
-<div class="bw-row">
-
-  <div class="bw-row-meta">
-
-    <span class="bw-dot"></span>
-
-    <div class="bw-row-text">
-      <h3 class="bw-cat">Guides & Tutorials</h3>
-      <span class="bw-count">11 files</span>
-    </div>
-
-  </div>
-
-  <div class="bw-cards">
-
-    <a href="https://drive.google.com/open?id=1YmwORki0C8gCDytCc6G7rWUP9oAQFrpK" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Master Amazon Sponsored Brands: Top Tips & Tricks (2025)</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1rvBbB5U1b0hSieUVwpjU51eme9-Wzaql" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Amazon MOQ For Sellers: Calculating Minimum Order Quantity</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=19TZru7XGSYywADszaoUto39AfYF47wQj" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Is there any Helium 10 API Available? #1 Profound Guide 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1AUkSFK6O1A_X2VYSUi0DW20lh8yFYiiN" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Meesho Dropshipping Tutorial: 9 Steps Easy Guide For Resellers</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1llQPxnOkOUh9kIlMG-6qAmGRJl7tD1Lr" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>How to Utilize Amazon Influencer Program? FBA Edition 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1HGYyRVl16MVQQybtnPrNxclBrl4FYoJv" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>How To Find Winning Products On Sell The Trend? (2025)</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1evnMxwCInQzxTo4wO1LbxGsGtcO_tmsW" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Meet Amazon FBA Requirements To Skyrocket Your Sales (2025)</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1WesB6SuAbc8lvZelOb4GIJXn8PPWt0Xr" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>How To Add CJ Dropshipping To Shopify? Step-By-Step Guide (2025)</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1uDBXiBDor3knQUULpxxFv9fByV7qihyq" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>CJdropshipping Login Guide 2025: Doing It the Right Way!</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=19iUFYYqJYV8tv0RhLqPLXUVqR4ki8w5_" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>How To Find Dropshipping Products On CJDropshipping? (2025)</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1eDMEX2bcTUgEZsuNiq7NnrH8rprxnqm4" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>How To Sell Amazon Restricted Products & Gated Brands? (2025)</h4>
-      </div>
-    </a>
-
-  </div>
-
-</div>
-
-<!-- ═════════════════════════════════════ -->
-<!-- ════ 4. COMPARISONS & ALTERNATIVES ═ -->
-<!-- ═════════════════════════════════════ -->
-
-<div class="bw-row">
-
-  <div class="bw-row-meta">
-
-    <span class="bw-dot"></span>
-
-    <div class="bw-row-text">
-      <h3 class="bw-cat">Comparisons & Alternatives</h3>
-      <span class="bw-count">9 files</span>
-    </div>
-
-  </div>
-
-  <div class="bw-cards">
-
-    <a href="https://drive.google.com/open?id=1nJLNV6Ly4PWXO8H3e8U0EPd_C_I4jF6l" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Jungle Scout vs SmartScout Detailed Comparison 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1b9ST6KndZDqCWfhtbcvFsq4XExNI5ECi" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Helium 10 Vs Quartile Face-Off 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1mKdyq_tVMt0l3iUgvhHD_VzNen5JHodc" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>ProductScope.ai vs. Helium 10</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=18i4zkH7jb8C38U_7h8jgx9w4cyy6Ll8H" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Sellerboard vs InventoryLab 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1HRgQzoJIwkSxtWo7rGjaOIk7l_aLPeGg" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Helium 10 vs Sellics (Perpetua) 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1YkuXeA9tlpcBShrktwV9DYpJiy9sp4cp" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Sellerboard Vs Helium 10 Comparison 2024</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=19SHHuipCcs6ZSJvwIKLn9r2fAeJydKwj" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Minea vs PiPiADS: Which Ad Spy Tool is Better?</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1DDx0aAGlrTjYffT5T_V6ZbT-tEKWIoFM" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Shopify vs Amazon FBA Showdown</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1IOSaa_K1avk-K-OcmnKFMiMpZG5zZNh8" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Dropispy vs Minea: Dropshipping Comparison 2025</h4>
-      </div>
-    </a>
-
-  </div>
-
-</div>
-
-  <!-- ═════════════════════════════════════ -->
-<!-- ═ 5. SEO, ECOMMERCE & INDUSTRY INSIGHTS ═ -->
-<!-- ═════════════════════════════════════ -->
-
-<div class="bw-row">
-
-  <div class="bw-row-meta">
-
-    <span class="bw-dot"></span>
-
-    <div class="bw-row-text">
-      <h3 class="bw-cat">SEO, Ecommerce & Industry Insights</h3>
-      <span class="bw-count">10 files</span>
-    </div>
-
-  </div>
-
-  <div class="bw-cards">
-
-    <a href="https://drive.google.com/open?id=1zMmwu31JEYEdy5aXC0sXkTlZCB0tQZ73" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Amazon Sellers ROAS Calculator: What's Your Profit?</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1hFPfEFDDcNcs0H9mGW4SeK6K4SqAQdX2" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Amazon FBA Packaging Requirements 2025: What's Missing?</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1YVIoIWz3GJQhM4uS3k-DAa5RHINGohqr" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Is there any Helium 10 API Available? #1 Profound Guide 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=15AeF485uCGTIifj7ezk6TT6pyyo4u_4o" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>How Big Is Meesho Dropshipping In India?</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=15lTIJQPFZ4VjdogJuUTgwlzr6P80lP5Y" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>10+ Best Amazon Keyword Tools 2025 → Rank Higher on AMZ</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1-gWh3whAee2ySJ4lauzvmmCnS-nJhCVn" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Does Helium 10 Work In Mexico?</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1kfnI_HTaLD-G1HYRrmphAJtsEVWCDC45" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Does Helium 10 Work in Brazil?</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1yRrOnUqB4QYzDhjTC-X2f9YG_QYCTEH9" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>80+ Amazon Seller Statistics to Level-Up Your Store in 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1yIXYeGwb7LlysWUs_MFuFsjy65s28P6J" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Can I Access Jungle Scout in Saudi Arabia?</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1P7AiAbrjSiCZse8FYlpQR7zadn7co9zj" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>How Is AliExpress So Affordable? The Cheap Revolution (2025)</h4>
-      </div>
-    </a>
-
-  </div>
-
-</div>
-
-<!-- ═════════════════════════════════════ -->
-<!-- ═══ 6. PRICING, TRIALS & DISCOUNTS ══ -->
-<!-- ═════════════════════════════════════ -->
-
-<div class="bw-row">
-
-  <div class="bw-row-meta">
-
-    <span class="bw-dot"></span>
-
-    <div class="bw-row-text">
-      <h3 class="bw-cat">Pricing, Trials & Discounts</h3>
-      <span class="bw-count">9 files</span>
-    </div>
-
-  </div>
-
-  <div class="bw-cards">
-
-    <a href="https://drive.google.com/open?id=1AlX4Jq7ENND4vzZvMqiqOrgs7qpCe4l2" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>RevSeller Free Trial</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1fNQocAYiK4E2MqkKpK5fS6Na4w0772do" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Aura Repricer Pricing Plans 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1ztuMfKZTQnBWWnDDyxKx8offXtfYv3jt" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Spocket Free Trial</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1B8m9v1TQ8lPbagJMan9rtAyKpgYHh2UV" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Profasee Pricing Plans 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1LF7bffWAf5SE170vzypyowkiKBjkf27p" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Data Dive Pricing Guide (2025)</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1zCC14pkZzNk-91cyhWfMU_9z5JUR7Knb" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Minea Pricing 2025</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1g3PD3UfeJw1umASdQBcSMEWF0xCrxgvc" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Everbee Pricing Plans and Discounts 2024</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1qZAKqhTdXlkvaFbGmUy_jGtla4wLGqhC" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>Adspert Pricing: How Much Does It Cost in 2025?</h4>
-      </div>
-    </a>
-
-    <a href="https://drive.google.com/open?id=1goPIY8i9pGNNwchuH77A6gd5n6TAp8kf" target="_blank" class="bw-card">
-      <img src="/assets/images/th-cs.png" class="bw-thumb" />
-      <div class="bw-card-info">
-        <h4>AMZScout Pricing Guide 2025</h4>
-      </div>
-    </a>
-
-  </div>
-
-</div>
-
-</section>
-
-              </div>
-
     </div>
 
   </div>
 
 </section>
-
 <!-- ═════════ SOCIAL MEDIA CONTENT ═════════ -->
 
 <section class="bw-section">
