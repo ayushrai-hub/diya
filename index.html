@@ -32,6 +32,106 @@
   <script type="module" crossorigin src="/assets/index-CNvsCBVp.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-BujY1Nu0.css">
   <style>
+
+    .bw-cards{
+  display:flex;
+  gap:18px;
+  max-width:900px;
+  overflow-x:auto;
+  padding-right:10px;
+}
+
+.bw-card{
+  flex:0 0 220px;
+}
+
+    .bw-section{
+  padding-inline:clamp(20px,5vw,80px);
+}
+
+.bw-row{
+  padding:48px;
+  border-radius:28px;
+}
+
+    /* ═════════ PORTFOLIO ADDITIONS ═════════ */
+
+.pop-grid{
+  columns:3 260px;
+  column-gap:18px;
+  margin-top:40px;
+}
+
+.pop-item{
+  display:block;
+  margin-bottom:18px;
+  overflow:hidden;
+  border-radius:18px;
+}
+
+.pop-item img{
+  width:100%;
+  display:block;
+  border-radius:18px;
+  transition:transform .4s ease;
+}
+
+.pop-item:hover img{
+  transform:scale(1.04);
+}
+
+.bw-cards{
+  flex-wrap:wrap;
+  gap:18px;
+}
+
+.bw-card{
+  min-width:240px;
+  transition:all .3s ease;
+}
+
+.bw-card:hover{
+  transform:translateY(-6px);
+}
+
+.bw-thumb{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:16px;
+}
+
+/* Better spacing */
+
+.bw-row{
+  margin-bottom:72px;
+}
+
+.cs-grid{
+  margin-top:36px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+  .pop-grid{
+    columns:1;
+  }
+
+  .bw-card{
+    min-width:100%;
+  }
+
+  .cs-card-title{
+    font-size:16px;
+  }
+
+  .cs-card-sub{
+    font-size:12px;
+  }
+
+}
 .bw-cards {
   display: flex !important;
   flex-wrap: wrap;
@@ -1612,6 +1712,115 @@
           <h4>Creator Monetization IP by Diya</h4>
         </div>
 
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- ═════════ PODCASTS & INTERVIEWS ═════════ -->
+
+<section class="cs-section" aria-label="Podcasts and Interviews">
+
+  <div class="cs-inner">
+
+    <div class="cs-top">
+
+      <span class="cs-eyebrow">
+        (LONG-FORM CONVERSATIONS • STORYTELLING • INTERVIEWS)
+      </span>
+
+      <h2 class="cs-heading">
+        PODCASTS & INTERVIEWS
+      </h2>
+
+      <div class="cs-underline"></div>
+
+    </div>
+
+    <div class="cs-grid">
+
+      <a class="cs-card"
+         href="https://drive.google.com/file/d/1x-s6NA06AvwU_2f6HQA25gOvo2_xJs1z/view?usp=drive_link"
+         target="_blank">
+
+        <div class="cs-card-inner">
+
+          <img class="cs-card-img"
+               src="/assets/images/th-cs.png"
+               alt="My Love for Podcasts" />
+
+          <div class="cs-card-overlay"></div>
+
+          <div class="cs-card-panel">
+
+            <span class="cs-card-title">
+              My Love for Podcasts
+            </span>
+
+            <span class="cs-card-sub">
+              Personal Podcast Philosophy
+            </span>
+
+          </div>
+
+        </div>
+      </a>
+
+      <a class="cs-card"
+         href="https://drive.google.com/file/d/10XBnddM5xrrIQmbCNdyrrfkqJ14gQx0Q/view?usp=drive_link"
+         target="_blank">
+
+        <div class="cs-card-inner">
+
+          <img class="cs-card-img"
+               src="/assets/images/th-cs.png"
+               alt="Podcast Script for Shantanu Deshpande" />
+
+          <div class="cs-card-overlay"></div>
+
+          <div class="cs-card-panel">
+
+            <span class="cs-card-title">
+              Podcast Script for Shantanu Deshpande
+            </span>
+
+            <span class="cs-card-sub">
+              Founder Interview Script
+            </span>
+
+          </div>
+
+        </div>
+      </a>
+
+      <a class="cs-card"
+         href="https://drive.google.com/file/d/1CePBh530tk9c8Kt1BjJLP4_b7U8dMQxT/view?usp=drive_link"
+         target="_blank">
+
+        <div class="cs-card-inner">
+
+          <img class="cs-card-img"
+               src="/assets/images/th-cs.png"
+               alt="Podcast Strategy" />
+
+          <div class="cs-card-overlay"></div>
+
+          <div class="cs-card-panel">
+
+            <span class="cs-card-title">
+              Podcast Strategy
+            </span>
+
+            <span class="cs-card-sub">
+              Long-form Content Positioning
+            </span>
+
+          </div>
+
+        </div>
       </a>
 
     </div>
